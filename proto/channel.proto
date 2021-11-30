@@ -1,0 +1,18 @@
+syntax = "proto3";
+option go_package = "config/";
+
+message Request {
+  string type = 1;
+  string clusterName = 2;
+  string body = 3;
+}
+
+message Response {
+  string type = 1;
+  string clusterName = 2;
+  string body = 3;
+}
+
+service Channel {
+  rpc Establish(stream Request) returns(stream Response);
+}
