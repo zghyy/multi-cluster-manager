@@ -26,6 +26,14 @@ import (
 type Interface interface {
 	// Clusters returns a ClusterInformer.
 	Clusters() ClusterInformer
+	// ClusterResources returns a ClusterResourceInformer.
+	ClusterResources() ClusterResourceInformer
+	// ClusterSets returns a ClusterSetInformer.
+	ClusterSets() ClusterSetInformer
+	// MultiClusterResources returns a MultiClusterResourceInformer.
+	MultiClusterResources() MultiClusterResourceInformer
+	// NamespaceMappings returns a NamespaceMappingInformer.
+	NamespaceMappings() NamespaceMappingInformer
 }
 
 type version struct {
@@ -42,4 +50,24 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Clusters returns a ClusterInformer.
 func (v *version) Clusters() ClusterInformer {
 	return &clusterInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
+}
+
+// ClusterResources returns a ClusterResourceInformer.
+func (v *version) ClusterResources() ClusterResourceInformer {
+	return &clusterResourceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// ClusterSets returns a ClusterSetInformer.
+func (v *version) ClusterSets() ClusterSetInformer {
+	return &clusterSetInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
+}
+
+// MultiClusterResources returns a MultiClusterResourceInformer.
+func (v *version) MultiClusterResources() MultiClusterResourceInformer {
+	return &multiClusterResourceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// NamespaceMappings returns a NamespaceMappingInformer.
+func (v *version) NamespaceMappings() NamespaceMappingInformer {
+	return &namespaceMappingInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

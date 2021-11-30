@@ -55,6 +55,14 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 	// Group=multicluster.harmonycloud.cn, Version=v1alpha1
 	case v1alpha1.SchemeGroupVersion.WithResource("clusters"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().Clusters().Informer()}, nil
+	case v1alpha1.SchemeGroupVersion.WithResource("clusterresources"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().ClusterResources().Informer()}, nil
+	case v1alpha1.SchemeGroupVersion.WithResource("clustersets"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().ClusterSets().Informer()}, nil
+	case v1alpha1.SchemeGroupVersion.WithResource("multiclusterresources"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().MultiClusterResources().Informer()}, nil
+	case v1alpha1.SchemeGroupVersion.WithResource("namespacemappings"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().NamespaceMappings().Informer()}, nil
 
 	}
 
