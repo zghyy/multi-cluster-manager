@@ -1,6 +1,9 @@
 package v1alpha1
 
-import metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+import (
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/runtime"
+)
 
 // +genclient
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
@@ -10,14 +13,14 @@ type AggregatedResource struct {
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
 	Clusters    *AggregatedResourceClusters `json:"clusters,omitempty"`
-	Aggregation []interface{}               `json:"aggregation,omitempty"`
+	Aggregation runtime.RawExtension        `json:"aggregation,omitempty"`
 	Status      AggregatedResourceStatus    `json:"status"`
 }
 
 type AggregatedResourceClusters struct {
-	Name         string        `json:"name"`
-	ResourceName string        `json:"resourceName"`
-	Result       []interface{} `json:"result,omitempty"`
+	Name         string               `json:"name"`
+	ResourceName string               `json:"resourceName"`
+	Result       runtime.RawExtension `json:"result,omitempty"`
 }
 
 type AggregatedResourceStatus struct {
