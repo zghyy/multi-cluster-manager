@@ -27,6 +27,10 @@ import (
 type MulticlusterV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	ClustersGetter
+	ClusterResourcesGetter
+	ClusterSetsGetter
+	MultiClusterResourcesGetter
+	NamespaceMappingsGetter
 }
 
 // MulticlusterV1alpha1Client is used to interact with features provided by the multicluster.harmonycloud.cn group.
@@ -36,6 +40,22 @@ type MulticlusterV1alpha1Client struct {
 
 func (c *MulticlusterV1alpha1Client) Clusters() ClusterInterface {
 	return newClusters(c)
+}
+
+func (c *MulticlusterV1alpha1Client) ClusterResources(namespace string) ClusterResourceInterface {
+	return newClusterResources(c, namespace)
+}
+
+func (c *MulticlusterV1alpha1Client) ClusterSets() ClusterSetInterface {
+	return newClusterSets(c)
+}
+
+func (c *MulticlusterV1alpha1Client) MultiClusterResources(namespace string) MultiClusterResourceInterface {
+	return newMultiClusterResources(c, namespace)
+}
+
+func (c *MulticlusterV1alpha1Client) NamespaceMappings(namespace string) NamespaceMappingInterface {
+	return newNamespaceMappings(c, namespace)
 }
 
 // NewForConfig creates a new MulticlusterV1alpha1Client for the given config.

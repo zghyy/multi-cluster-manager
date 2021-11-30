@@ -32,6 +32,22 @@ func (c *FakeMulticlusterV1alpha1) Clusters() v1alpha1.ClusterInterface {
 	return &FakeClusters{c}
 }
 
+func (c *FakeMulticlusterV1alpha1) ClusterResources(namespace string) v1alpha1.ClusterResourceInterface {
+	return &FakeClusterResources{c, namespace}
+}
+
+func (c *FakeMulticlusterV1alpha1) ClusterSets() v1alpha1.ClusterSetInterface {
+	return &FakeClusterSets{c}
+}
+
+func (c *FakeMulticlusterV1alpha1) MultiClusterResources(namespace string) v1alpha1.MultiClusterResourceInterface {
+	return &FakeMultiClusterResources{c, namespace}
+}
+
+func (c *FakeMulticlusterV1alpha1) NamespaceMappings(namespace string) v1alpha1.NamespaceMappingInterface {
+	return &FakeNamespaceMappings{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeMulticlusterV1alpha1) RESTClient() rest.Interface {

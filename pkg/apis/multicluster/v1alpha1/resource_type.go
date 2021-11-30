@@ -17,7 +17,7 @@ type MultiClusterResource struct {
 }
 
 type MultiClusterResourceSpec struct {
-	Resource      *runtime.Unstructured `json:"resource,omitempty"`
+	Resource      *runtime.RawExtension `json:"resource,omitempty"`
 	ReplicasField string                `json:"replicasFiled,omitempty"`
 	Workload      bool                  `json:"workload,omitempty"`
 }
