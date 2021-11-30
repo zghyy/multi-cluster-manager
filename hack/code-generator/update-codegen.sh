@@ -22,6 +22,8 @@ set -o pipefail
 # - --output-base because this script should also be able to run inside the vendor dir of
 #   k8s.io/kubernetes. The output-base is needed for the generators to output into the vendor dir
 #   instead of the $GOPATH directly. For normal projects this can be dropped.
-"$(dirname "${BASH_SOURCE[0]}")"/../../../../k8s.io/code-generator/generate-groups.sh all \
+go mod vendor
+chmod +x "$(dirname "${BASH_SOURCE[0]}")"/../../vendor/k8s.io/code-generator/generate-groups.sh
+"$(dirname "${BASH_SOURCE[0]}")"/../../vendor/k8s.io/code-generator/generate-groups.sh all \
   harmonycloud.cn/multi-cluster-manager/pkg/client harmonycloud.cn/multi-cluster-manager/pkg/apis \
   "multicluster:v1alpha1"

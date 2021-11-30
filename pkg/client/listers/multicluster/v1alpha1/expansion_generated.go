@@ -21,3 +21,31 @@ package v1alpha1
 // ClusterListerExpansion allows custom methods to be added to
 // ClusterLister.
 type ClusterListerExpansion interface{}
+
+// ClusterResourceListerExpansion allows custom methods to be added to
+// ClusterResourceLister.
+type ClusterResourceListerExpansion interface{}
+
+// ClusterResourceNamespaceListerExpansion allows custom methods to be added to
+// ClusterResourceNamespaceLister.
+type ClusterResourceNamespaceListerExpansion interface{}
+
+// ClusterSetListerExpansion allows custom methods to be added to
+// ClusterSetLister.
+type ClusterSetListerExpansion interface{}
+
+// MultiClusterResourceListerExpansion allows custom methods to be added to
+// MultiClusterResourceLister.
+type MultiClusterResourceListerExpansion interface{}
+
+// MultiClusterResourceNamespaceListerExpansion allows custom methods to be added to
+// MultiClusterResourceNamespaceLister.
+type MultiClusterResourceNamespaceListerExpansion interface{}
+
+// NamespaceMappingListerExpansion allows custom methods to be added to
+// NamespaceMappingLister.
+type NamespaceMappingListerExpansion interface{}
+
+// NamespaceMappingNamespaceListerExpansion allows custom methods to be added to
+// NamespaceMappingNamespaceLister.
+type NamespaceMappingNamespaceListerExpansion interface{}

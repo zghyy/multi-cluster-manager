@@ -18,7 +18,7 @@ type ClusterResource struct {
 }
 
 type ClusterResourceSpec struct {
-	Resource *runtime.Unstructured `json:"resource,omitempty"`
+	Resource *runtime.RawExtension `json:"resource,omitempty"`
 }
 
 type ClusterResourceStatus struct {

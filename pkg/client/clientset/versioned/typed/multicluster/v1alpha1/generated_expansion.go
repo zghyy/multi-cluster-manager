@@ -19,3 +19,11 @@ limitations under the License.
 package v1alpha1
 
 type ClusterExpansion interface{}
+
+type ClusterResourceExpansion interface{}
+
+type ClusterSetExpansion interface{}
+
+type MultiClusterResourceExpansion interface{}
+
+type NamespaceMappingExpansion interface{}
