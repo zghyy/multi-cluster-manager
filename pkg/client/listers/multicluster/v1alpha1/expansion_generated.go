@@ -26,14 +26,6 @@ type AggregatedResourceListerExpansion interface{}
 // AggregatedResourceNamespaceLister.
 type AggregatedResourceNamespaceListerExpansion interface{}
 
-// AggregatedResourceListListerExpansion allows custom methods to be added to
-// AggregatedResourceListLister.
-type AggregatedResourceListListerExpansion interface{}
-
-// AggregatedResourceListNamespaceListerExpansion allows custom methods to be added to
-// AggregatedResourceListNamespaceLister.
-type AggregatedResourceListNamespaceListerExpansion interface{}
-
 // ClusterListerExpansion allows custom methods to be added to
 // ClusterLister.
 type ClusterListerExpansion interface{}
@@ -66,14 +58,6 @@ type MultiClusterResourceAggregatePolicyListerExpansion interface{}
 // MultiClusterResourceAggregatePolicyNamespaceLister.
 type MultiClusterResourceAggregatePolicyNamespaceListerExpansion interface{}
 
-// MultiClusterResourceAggregatePolicyListListerExpansion allows custom methods to be added to
-// MultiClusterResourceAggregatePolicyListLister.
-type MultiClusterResourceAggregatePolicyListListerExpansion interface{}
-
-// MultiClusterResourceAggregatePolicyListNamespaceListerExpansion allows custom methods to be added to
-// MultiClusterResourceAggregatePolicyListNamespaceLister.
-type MultiClusterResourceAggregatePolicyListNamespaceListerExpansion interface{}
-
 // MultiClusterResourceAggregateRuleListerExpansion allows custom methods to be added to
 // MultiClusterResourceAggregateRuleLister.
 type MultiClusterResourceAggregateRuleListerExpansion interface{}
@@ -81,14 +65,6 @@ type MultiClusterResourceAggregateRuleListerExpansion interface{}
 // MultiClusterResourceAggregateRuleNamespaceListerExpansion allows custom methods to be added to
 // MultiClusterResourceAggregateRuleNamespaceLister.
 type MultiClusterResourceAggregateRuleNamespaceListerExpansion interface{}
-
-// MultiClusterResourceAggregateRuleListListerExpansion allows custom methods to be added to
-// MultiClusterResourceAggregateRuleListLister.
-type MultiClusterResourceAggregateRuleListListerExpansion interface{}
-
-// MultiClusterResourceAggregateRuleListNamespaceListerExpansion allows custom methods to be added to
-// MultiClusterResourceAggregateRuleListNamespaceLister.
-type MultiClusterResourceAggregateRuleListNamespaceListerExpansion interface{}
 
 // NamespaceMappingListerExpansion allows custom methods to be added to
 // NamespaceMappingLister.
@@ -105,11 +81,3 @@ type ResourceAggregatePolicyListerExpansion interface{}
 // ResourceAggregatePolicyNamespaceListerExpansion allows custom methods to be added to
 // ResourceAggregatePolicyNamespaceLister.
 type ResourceAggregatePolicyNamespaceListerExpansion interface{}
-
-// ResourceAggregatePolicyListListerExpansion allows custom methods to be added to
-// ResourceAggregatePolicyListLister.
-type ResourceAggregatePolicyListListerExpansion interface{}
-
-// ResourceAggregatePolicyListNamespaceListerExpansion allows custom methods to be added to
-// ResourceAggregatePolicyListNamespaceLister.
-type ResourceAggregatePolicyListNamespaceListerExpansion interface{}

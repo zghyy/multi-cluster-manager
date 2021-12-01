@@ -27,18 +27,14 @@ import (
 type MulticlusterV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	AggregatedResourcesGetter
-	AggregatedResourceListsGetter
 	ClustersGetter
 	ClusterResourcesGetter
 	ClusterSetsGetter
 	MultiClusterResourcesGetter
 	MultiClusterResourceAggregatePoliciesGetter
-	MultiClusterResourceAggregatePolicyListsGetter
 	MultiClusterResourceAggregateRulesGetter
-	MultiClusterResourceAggregateRuleListsGetter
 	NamespaceMappingsGetter
 	ResourceAggregatePoliciesGetter
-	ResourceAggregatePolicyListsGetter
 }
 
 // MulticlusterV1alpha1Client is used to interact with features provided by the multicluster.harmonycloud.cn group.
@@ -48,10 +44,6 @@ type MulticlusterV1alpha1Client struct {
 
 func (c *MulticlusterV1alpha1Client) AggregatedResources(namespace string) AggregatedResourceInterface {
 	return newAggregatedResources(c, namespace)
-}
-
-func (c *MulticlusterV1alpha1Client) AggregatedResourceLists(namespace string) AggregatedResourceListInterface {
-	return newAggregatedResourceLists(c, namespace)
 }
 
 func (c *MulticlusterV1alpha1Client) Clusters() ClusterInterface {
@@ -74,16 +66,8 @@ func (c *MulticlusterV1alpha1Client) MultiClusterResourceAggregatePolicies(names
 	return newMultiClusterResourceAggregatePolicies(c, namespace)
 }
 
-func (c *MulticlusterV1alpha1Client) MultiClusterResourceAggregatePolicyLists(namespace string) MultiClusterResourceAggregatePolicyListInterface {
-	return newMultiClusterResourceAggregatePolicyLists(c, namespace)
-}
-
 func (c *MulticlusterV1alpha1Client) MultiClusterResourceAggregateRules(namespace string) MultiClusterResourceAggregateRuleInterface {
 	return newMultiClusterResourceAggregateRules(c, namespace)
-}
-
-func (c *MulticlusterV1alpha1Client) MultiClusterResourceAggregateRuleLists(namespace string) MultiClusterResourceAggregateRuleListInterface {
-	return newMultiClusterResourceAggregateRuleLists(c, namespace)
 }
 
 func (c *MulticlusterV1alpha1Client) NamespaceMappings(namespace string) NamespaceMappingInterface {
@@ -92,10 +76,6 @@ func (c *MulticlusterV1alpha1Client) NamespaceMappings(namespace string) Namespa
 
 func (c *MulticlusterV1alpha1Client) ResourceAggregatePolicies(namespace string) ResourceAggregatePolicyInterface {
 	return newResourceAggregatePolicies(c, namespace)
-}
-
-func (c *MulticlusterV1alpha1Client) ResourceAggregatePolicyLists(namespace string) ResourceAggregatePolicyListInterface {
-	return newResourceAggregatePolicyLists(c, namespace)
 }
 
 // NewForConfig creates a new MulticlusterV1alpha1Client for the given config.

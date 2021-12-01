@@ -20,8 +20,6 @@ package v1alpha1
 
 type AggregatedResourceExpansion interface{}
 
-type AggregatedResourceListExpansion interface{}
-
 type ClusterExpansion interface{}
 
 type ClusterResourceExpansion interface{}
@@ -32,14 +30,8 @@ type MultiClusterResourceExpansion interface{}
 
 type MultiClusterResourceAggregatePolicyExpansion interface{}
 
-type MultiClusterResourceAggregatePolicyListExpansion interface{}
-
 type MultiClusterResourceAggregateRuleExpansion interface{}
-
-type MultiClusterResourceAggregateRuleListExpansion interface{}
 
 type NamespaceMappingExpansion interface{}
 
 type ResourceAggregatePolicyExpansion interface{}
-
-type ResourceAggregatePolicyListExpansion interface{}

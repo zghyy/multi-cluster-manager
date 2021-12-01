@@ -26,8 +26,6 @@ import (
 type Interface interface {
 	// AggregatedResources returns a AggregatedResourceInformer.
 	AggregatedResources() AggregatedResourceInformer
-	// AggregatedResourceLists returns a AggregatedResourceListInformer.
-	AggregatedResourceLists() AggregatedResourceListInformer
 	// Clusters returns a ClusterInformer.
 	Clusters() ClusterInformer
 	// ClusterResources returns a ClusterResourceInformer.
@@ -38,18 +36,12 @@ type Interface interface {
 	MultiClusterResources() MultiClusterResourceInformer
 	// MultiClusterResourceAggregatePolicies returns a MultiClusterResourceAggregatePolicyInformer.
 	MultiClusterResourceAggregatePolicies() MultiClusterResourceAggregatePolicyInformer
-	// MultiClusterResourceAggregatePolicyLists returns a MultiClusterResourceAggregatePolicyListInformer.
-	MultiClusterResourceAggregatePolicyLists() MultiClusterResourceAggregatePolicyListInformer
 	// MultiClusterResourceAggregateRules returns a MultiClusterResourceAggregateRuleInformer.
 	MultiClusterResourceAggregateRules() MultiClusterResourceAggregateRuleInformer
-	// MultiClusterResourceAggregateRuleLists returns a MultiClusterResourceAggregateRuleListInformer.
-	MultiClusterResourceAggregateRuleLists() MultiClusterResourceAggregateRuleListInformer
 	// NamespaceMappings returns a NamespaceMappingInformer.
 	NamespaceMappings() NamespaceMappingInformer
 	// ResourceAggregatePolicies returns a ResourceAggregatePolicyInformer.
 	ResourceAggregatePolicies() ResourceAggregatePolicyInformer
-	// ResourceAggregatePolicyLists returns a ResourceAggregatePolicyListInformer.
-	ResourceAggregatePolicyLists() ResourceAggregatePolicyListInformer
 }
 
 type version struct {
@@ -66,11 +58,6 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // AggregatedResources returns a AggregatedResourceInformer.
 func (v *version) AggregatedResources() AggregatedResourceInformer {
 	return &aggregatedResourceInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
-}
-
-// AggregatedResourceLists returns a AggregatedResourceListInformer.
-func (v *version) AggregatedResourceLists() AggregatedResourceListInformer {
-	return &aggregatedResourceListInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // Clusters returns a ClusterInformer.
@@ -98,19 +85,9 @@ func (v *version) MultiClusterResourceAggregatePolicies() MultiClusterResourceAg
 	return &multiClusterResourceAggregatePolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
-// MultiClusterResourceAggregatePolicyLists returns a MultiClusterResourceAggregatePolicyListInformer.
-func (v *version) MultiClusterResourceAggregatePolicyLists() MultiClusterResourceAggregatePolicyListInformer {
-	return &multiClusterResourceAggregatePolicyListInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
-}
-
 // MultiClusterResourceAggregateRules returns a MultiClusterResourceAggregateRuleInformer.
 func (v *version) MultiClusterResourceAggregateRules() MultiClusterResourceAggregateRuleInformer {
 	return &multiClusterResourceAggregateRuleInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
-}
-
-// MultiClusterResourceAggregateRuleLists returns a MultiClusterResourceAggregateRuleListInformer.
-func (v *version) MultiClusterResourceAggregateRuleLists() MultiClusterResourceAggregateRuleListInformer {
-	return &multiClusterResourceAggregateRuleListInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // NamespaceMappings returns a NamespaceMappingInformer.
@@ -121,9 +98,4 @@ func (v *version) NamespaceMappings() NamespaceMappingInformer {
 // ResourceAggregatePolicies returns a ResourceAggregatePolicyInformer.
 func (v *version) ResourceAggregatePolicies() ResourceAggregatePolicyInformer {
 	return &resourceAggregatePolicyInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
-}
-
-// ResourceAggregatePolicyLists returns a ResourceAggregatePolicyListInformer.
-func (v *version) ResourceAggregatePolicyLists() ResourceAggregatePolicyListInformer {
-	return &resourceAggregatePolicyListInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

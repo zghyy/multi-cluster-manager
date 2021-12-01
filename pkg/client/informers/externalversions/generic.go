@@ -55,8 +55,6 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 	// Group=multicluster.harmonycloud.cn, Version=v1alpha1
 	case v1alpha1.SchemeGroupVersion.WithResource("aggregatedresources"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().AggregatedResources().Informer()}, nil
-	case v1alpha1.SchemeGroupVersion.WithResource("aggregatedresourcelists"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().AggregatedResourceLists().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("clusters"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().Clusters().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("clusterresources"):
@@ -67,18 +65,12 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().MultiClusterResources().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("multiclusterresourceaggregatepolicies"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().MultiClusterResourceAggregatePolicies().Informer()}, nil
-	case v1alpha1.SchemeGroupVersion.WithResource("multiclusterresourceaggregatepolicylists"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().MultiClusterResourceAggregatePolicyLists().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("multiclusterresourceaggregaterules"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().MultiClusterResourceAggregateRules().Informer()}, nil
-	case v1alpha1.SchemeGroupVersion.WithResource("multiclusterresourceaggregaterulelists"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().MultiClusterResourceAggregateRuleLists().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("namespacemappings"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().NamespaceMappings().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("resourceaggregatepolicies"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().ResourceAggregatePolicies().Informer()}, nil
-	case v1alpha1.SchemeGroupVersion.WithResource("resourceaggregatepolicylists"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().ResourceAggregatePolicyLists().Informer()}, nil
 
 	}
 

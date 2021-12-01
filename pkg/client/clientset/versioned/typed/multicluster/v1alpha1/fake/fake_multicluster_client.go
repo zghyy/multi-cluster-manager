@@ -32,10 +32,6 @@ func (c *FakeMulticlusterV1alpha1) AggregatedResources(namespace string) v1alpha
 	return &FakeAggregatedResources{c, namespace}
 }
 
-func (c *FakeMulticlusterV1alpha1) AggregatedResourceLists(namespace string) v1alpha1.AggregatedResourceListInterface {
-	return &FakeAggregatedResourceLists{c, namespace}
-}
-
 func (c *FakeMulticlusterV1alpha1) Clusters() v1alpha1.ClusterInterface {
 	return &FakeClusters{c}
 }
@@ -56,16 +52,8 @@ func (c *FakeMulticlusterV1alpha1) MultiClusterResourceAggregatePolicies(namespa
 	return &FakeMultiClusterResourceAggregatePolicies{c, namespace}
 }
 
-func (c *FakeMulticlusterV1alpha1) MultiClusterResourceAggregatePolicyLists(namespace string) v1alpha1.MultiClusterResourceAggregatePolicyListInterface {
-	return &FakeMultiClusterResourceAggregatePolicyLists{c, namespace}
-}
-
 func (c *FakeMulticlusterV1alpha1) MultiClusterResourceAggregateRules(namespace string) v1alpha1.MultiClusterResourceAggregateRuleInterface {
 	return &FakeMultiClusterResourceAggregateRules{c, namespace}
-}
-
-func (c *FakeMulticlusterV1alpha1) MultiClusterResourceAggregateRuleLists(namespace string) v1alpha1.MultiClusterResourceAggregateRuleListInterface {
-	return &FakeMultiClusterResourceAggregateRuleLists{c, namespace}
 }
 
 func (c *FakeMulticlusterV1alpha1) NamespaceMappings(namespace string) v1alpha1.NamespaceMappingInterface {
@@ -74,10 +62,6 @@ func (c *FakeMulticlusterV1alpha1) NamespaceMappings(namespace string) v1alpha1.
 
 func (c *FakeMulticlusterV1alpha1) ResourceAggregatePolicies(namespace string) v1alpha1.ResourceAggregatePolicyInterface {
 	return &FakeResourceAggregatePolicies{c, namespace}
-}
-
-func (c *FakeMulticlusterV1alpha1) ResourceAggregatePolicyLists(namespace string) v1alpha1.ResourceAggregatePolicyListInterface {
-	return &FakeResourceAggregatePolicyLists{c, namespace}
 }
 
 // RESTClient returns a RESTClient that is used to communicate
