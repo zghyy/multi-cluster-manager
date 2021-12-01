@@ -18,6 +18,14 @@ limitations under the License.
 
 package v1alpha1
 
+// AggregatedResourceListerExpansion allows custom methods to be added to
+// AggregatedResourceLister.
+type AggregatedResourceListerExpansion interface{}
+
+// AggregatedResourceNamespaceListerExpansion allows custom methods to be added to
+// AggregatedResourceNamespaceLister.
+type AggregatedResourceNamespaceListerExpansion interface{}
+
 // ClusterListerExpansion allows custom methods to be added to
 // ClusterLister.
 type ClusterListerExpansion interface{}
@@ -42,6 +50,22 @@ type MultiClusterResourceListerExpansion interface{}
 // MultiClusterResourceNamespaceLister.
 type MultiClusterResourceNamespaceListerExpansion interface{}
 
+// MultiClusterResourceAggregatePolicyListerExpansion allows custom methods to be added to
+// MultiClusterResourceAggregatePolicyLister.
+type MultiClusterResourceAggregatePolicyListerExpansion interface{}
+
+// MultiClusterResourceAggregatePolicyNamespaceListerExpansion allows custom methods to be added to
+// MultiClusterResourceAggregatePolicyNamespaceLister.
+type MultiClusterResourceAggregatePolicyNamespaceListerExpansion interface{}
+
+// MultiClusterResourceAggregateRuleListerExpansion allows custom methods to be added to
+// MultiClusterResourceAggregateRuleLister.
+type MultiClusterResourceAggregateRuleListerExpansion interface{}
+
+// MultiClusterResourceAggregateRuleNamespaceListerExpansion allows custom methods to be added to
+// MultiClusterResourceAggregateRuleNamespaceLister.
+type MultiClusterResourceAggregateRuleNamespaceListerExpansion interface{}
+
 // NamespaceMappingListerExpansion allows custom methods to be added to
 // NamespaceMappingLister.
 type NamespaceMappingListerExpansion interface{}
@@ -49,3 +73,11 @@ type NamespaceMappingListerExpansion interface{}
 // NamespaceMappingNamespaceListerExpansion allows custom methods to be added to
 // NamespaceMappingNamespaceLister.
 type NamespaceMappingNamespaceListerExpansion interface{}
+
+// ResourceAggregatePolicyListerExpansion allows custom methods to be added to
+// ResourceAggregatePolicyLister.
+type ResourceAggregatePolicyListerExpansion interface{}
+
+// ResourceAggregatePolicyNamespaceListerExpansion allows custom methods to be added to
+// ResourceAggregatePolicyNamespaceLister.
+type ResourceAggregatePolicyNamespaceListerExpansion interface{}

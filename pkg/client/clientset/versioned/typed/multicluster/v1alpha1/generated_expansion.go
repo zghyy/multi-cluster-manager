@@ -18,6 +18,8 @@ limitations under the License.
 
 package v1alpha1
 
+type AggregatedResourceExpansion interface{}
+
 type ClusterExpansion interface{}
 
 type ClusterResourceExpansion interface{}
@@ -26,4 +28,10 @@ type ClusterSetExpansion interface{}
 
 type MultiClusterResourceExpansion interface{}
 
+type MultiClusterResourceAggregatePolicyExpansion interface{}
+
+type MultiClusterResourceAggregateRuleExpansion interface{}
+
 type NamespaceMappingExpansion interface{}
+
+type ResourceAggregatePolicyExpansion interface{}

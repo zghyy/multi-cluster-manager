@@ -28,6 +28,10 @@ type FakeMulticlusterV1alpha1 struct {
 	*testing.Fake
 }
 
+func (c *FakeMulticlusterV1alpha1) AggregatedResources(namespace string) v1alpha1.AggregatedResourceInterface {
+	return &FakeAggregatedResources{c, namespace}
+}
+
 func (c *FakeMulticlusterV1alpha1) Clusters() v1alpha1.ClusterInterface {
 	return &FakeClusters{c}
 }
@@ -44,8 +48,20 @@ func (c *FakeMulticlusterV1alpha1) MultiClusterResources(namespace string) v1alp
 	return &FakeMultiClusterResources{c, namespace}
 }
 
+func (c *FakeMulticlusterV1alpha1) MultiClusterResourceAggregatePolicies(namespace string) v1alpha1.MultiClusterResourceAggregatePolicyInterface {
+	return &FakeMultiClusterResourceAggregatePolicies{c, namespace}
+}
+
+func (c *FakeMulticlusterV1alpha1) MultiClusterResourceAggregateRules(namespace string) v1alpha1.MultiClusterResourceAggregateRuleInterface {
+	return &FakeMultiClusterResourceAggregateRules{c, namespace}
+}
+
 func (c *FakeMulticlusterV1alpha1) NamespaceMappings(namespace string) v1alpha1.NamespaceMappingInterface {
 	return &FakeNamespaceMappings{c, namespace}
+}
+
+func (c *FakeMulticlusterV1alpha1) ResourceAggregatePolicies(namespace string) v1alpha1.ResourceAggregatePolicyInterface {
+	return &FakeResourceAggregatePolicies{c, namespace}
 }
 
 // RESTClient returns a RESTClient that is used to communicate

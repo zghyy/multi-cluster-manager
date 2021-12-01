@@ -42,7 +42,6 @@ type AggregatedResourceStatusClusters struct {
 	Status       AggregatedResourceStatusClusterStatus `json:"status"`
 }
 
-// +genclient
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 type AggregatedResourceList struct {
