@@ -67,6 +67,8 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().MultiClusterResourceAggregatePolicies().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("multiclusterresourceaggregaterules"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().MultiClusterResourceAggregateRules().Informer()}, nil
+	case v1alpha1.SchemeGroupVersion.WithResource("multiclusterresourcebindings"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().MultiClusterResourceBindings().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("namespacemappings"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Multicluster().V1alpha1().NamespaceMappings().Informer()}, nil
 	case v1alpha1.SchemeGroupVersion.WithResource("resourceaggregatepolicies"):

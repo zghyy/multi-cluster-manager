@@ -32,7 +32,7 @@ func (c *Channel) Establish(stream config.Channel_EstablishServer) error {
 		if clusterName == "(unknown)" {
 			clusterName = req.ClusterName
 		}
-		for _, handler := range c.server.Handlers[req.Type] {
+		for _, handler := range c.Server.Handlers[req.Type] {
 			go handler(req, stream)
 		}
 	}

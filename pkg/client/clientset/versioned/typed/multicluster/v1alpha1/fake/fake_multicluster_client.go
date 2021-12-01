@@ -56,6 +56,10 @@ func (c *FakeMulticlusterV1alpha1) MultiClusterResourceAggregateRules(namespace 
 	return &FakeMultiClusterResourceAggregateRules{c, namespace}
 }
 
+func (c *FakeMulticlusterV1alpha1) MultiClusterResourceBindings(namespace string) v1alpha1.MultiClusterResourceBindingInterface {
+	return &FakeMultiClusterResourceBindings{c, namespace}
+}
+
 func (c *FakeMulticlusterV1alpha1) NamespaceMappings(namespace string) v1alpha1.NamespaceMappingInterface {
 	return &FakeNamespaceMappings{c, namespace}
 }

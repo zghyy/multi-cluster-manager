@@ -66,6 +66,14 @@ type MultiClusterResourceAggregateRuleListerExpansion interface{}
 // MultiClusterResourceAggregateRuleNamespaceLister.
 type MultiClusterResourceAggregateRuleNamespaceListerExpansion interface{}
 
+// MultiClusterResourceBindingListerExpansion allows custom methods to be added to
+// MultiClusterResourceBindingLister.
+type MultiClusterResourceBindingListerExpansion interface{}
+
+// MultiClusterResourceBindingNamespaceListerExpansion allows custom methods to be added to
+// MultiClusterResourceBindingNamespaceLister.
+type MultiClusterResourceBindingNamespaceListerExpansion interface{}
+
 // NamespaceMappingListerExpansion allows custom methods to be added to
 // NamespaceMappingLister.
 type NamespaceMappingListerExpansion interface{}
