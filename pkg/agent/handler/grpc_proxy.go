@@ -28,7 +28,7 @@ func Register(cfg *agentconfig.Configuration) error {
 	}
 	addonRequest, err := json.Marshal(addonInfo)
 	if err != nil {
-		return fmt.Errorf("Marshal err: %v", err)
+		return fmt.Errorf("marshal err: %v", err)
 	}
 
 	request := &config.Request{
@@ -37,8 +37,7 @@ func Register(cfg *agentconfig.Configuration) error {
 		Body:        string(addonRequest),
 	}
 
-	err = stream.Send(request)
-	if err != nil {
+	if err = stream.Send(request); err != nil {
 		return fmt.Errorf("stream send to server err: %v", err)
 	}
 
