@@ -7,8 +7,6 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"google.golang.org/grpc"
-	"io"
-
 	"harmonycloud.cn/multi-cluster-manager/config"
 	agentconfig "harmonycloud.cn/multi-cluster-manager/pkg/agent/config"
 	addoninfo "harmonycloud.cn/multi-cluster-manager/pkg/model"
@@ -43,16 +41,14 @@ func Register(cfg *agentconfig.Configuration) error {
 	if err != nil {
 		return fmt.Errorf("stream send to server err: %v", err)
 	}
-	for {
-		resp, err := stream.Recv()
-		if err == io.EOF {
-			logrus.Printf("stream get from server,code:%v,value:%v", resp)
-			//TODO After Receive Response
-		}
-		if err != nil {
-			return fmt.Errorf("stream get from server err: %v", err)
-		}
+
+	resp, err := stream.Recv()
+	if err != nil {
+		return fmt.Errorf("stream get from server err: %v", err)
 	}
+	logrus.Printf("stream get from server:%v", resp)
+	//TODO After Receive Response
+	return nil
 
 }
 
