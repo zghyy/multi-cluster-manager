@@ -9,6 +9,7 @@ import (
 	listers "harmonycloud.cn/multi-cluster-manager/pkg/client/listers/multicluster/v1alpha1"
 	_ "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
+	"k8s.io/apimachinery/pkg/api/errors"
 	_ "k8s.io/apimachinery/pkg/apis/meta/v1"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	"k8s.io/apimachinery/pkg/util/wait"
@@ -180,15 +181,14 @@ func (c *MultiClusterResourceBindingController) processNextWorkItem() bool {
 func (c *MultiClusterResourceBindingController) enqueue(obj interface{}) {
 	var key string
 	var err error
-	if key,err = cache.MetaNamespaceKeyFunc(obj);err != nil{
+	if key, err = cache.MetaNamespaceKeyFunc(obj); err != nil {
 		utilruntime.HandleError(err)
 	}
 	c.workqueue.Add(key)
 }
 
-
 func (c *MultiClusterResourceBindingController) handleMultiClusterResourceBinding(obj interface{}) {
-	multiClusterResourceBinding,ok := obj.(multiclusterv1alpha1.MultiClusterResourceBinding)
+	multiClusterResourceBinding, ok := obj.(multiclusterv1alpha1.MultiClusterResourceBinding)
 	if !ok {
 		utilruntime.HandleError(fmt.Errorf("error decoding object into MultiClusterResourceBinding"))
 		return
@@ -197,5 +197,29 @@ func (c *MultiClusterResourceBindingController) handleMultiClusterResourceBindin
 }
 
 func (c *MultiClusterResourceBindingController) syncHandler(key string) error {
+	namespace, name, err := cache.SplitMetaNamespaceKey(key)
+	if err != nil {
+		utilruntime.HandleError(fmt.Errorf("invalid resource key: %s", key))
+		return nil
+	}
+
+	multiClusterResourceBinding, err := c.multiClusterResourceBindingLister.MultiClusterResourceBindings(namespace).Get(name)
+	if err != nil {
+		if errors.IsNotFound(err) {
+			utilruntime.HandleError(fmt.Errorf("MultiClusterResourceBinding '%s' in work queue no longer exists", key))
+			return nil
+		}
+		return err
+	}
+
+	for _, resource := range multiClusterResourceBinding.Spec.Resources {
+		var multiClusterResource multiclusterv1alpha1.MultiClusterResource
+		multiClusterResource, err = c.multiClusterResourceLister.MultiClusterResources(multiClusterResourceBinding.Namespace).Get(resource.Name)
+		if err != nil {
+			return err
+		}
+
+	}
+
 	return nil
 }
