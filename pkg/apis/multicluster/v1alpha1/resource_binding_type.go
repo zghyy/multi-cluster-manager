@@ -18,11 +18,11 @@ type MultiClusterResourceBinding struct {
 
 type MultiClusterResourceBindingSpec struct {
 	Resources []MultiClusterResourceBindingResource `json:"resources,omitempty"`
-	Clusters  []MultiClusterResourceBindingCluster  `json:"clusters,omitempty"`
 }
 
 type MultiClusterResourceBindingResource struct {
 	Name string `json:"name,omitempty"`
+	Clusters  []MultiClusterResourceBindingCluster  `json:"clusters,omitempty"`
 }
 
 type MultiClusterResourceBindingCluster struct {
